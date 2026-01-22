@@ -36,13 +36,13 @@ class PlantFactory:
         self.count += 1
 
 
-if __name__ == "__main__":
-    print("=== Plant Factory Output ===")
-    factory = PlantFactory()
-    factory.create_plant("Rose", 18, 17)
-    factory.create_plant("Sunflower", 17, 8)
-    factory.create_plant("Cactus", 18, 17)
-    factory.create_plant("Fern", 17, 8)
-    for p in factory.plants:
-        p.get_info()
-    print(f"Total plants created: {factory.count}")
+print("=== Plant Factory Output ===")
+factory = PlantFactory()
+factory.create_plant("Rose", 18, 17)
+factory.create_plant("Sunflower", 17, 8)
+factory.create_plant("Cactus", 18, 17)
+factory.create_plant("Fern", 17, 8)
+factory.create_plant("Oak", 107, 38)
+for p in factory.plants:
+    p.get_info()
+print(f"Total plants created: {factory.count}")

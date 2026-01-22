@@ -66,5 +66,4 @@ def main():
     tulip.get_info()
 
 
-if __name__ == "__main__":
-    main()
+main()

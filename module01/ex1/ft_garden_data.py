@@ -18,11 +18,10 @@ class Plant:
         self.age = age
 
 
-if __name__ == "__main__":
-    rose = Plant("Rose", 18, 10)
-    sunflower = Plant("Sunflower", 17, 8)
-    tulip = Plant("tulip", 22, 19)
-    print("=== Garden Plant Registry ===")
-    print(f"{rose.name}: {rose.height}cm, {rose.age} days old")
-    print(f"{sunflower.name}: {sunflower.height}cm, {sunflower.age} days old")
-    print(f"{tulip.name}: {tulip.height}cm, {tulip.age} days old")
+rose = Plant("Rose", 18, 10)
+sunflower = Plant("Sunflower", 17, 8)
+tulip = Plant("tulip", 22, 19)
+print("=== Garden Plant Registry ===")
+print(f"{rose.name}: {rose.height}cm, {rose.age} days old")
+print(f"{sunflower.name}: {sunflower.height}cm, {sunflower.age} days old")
+print(f"{tulip.name}: {tulip.height}cm, {tulip.age} days old")

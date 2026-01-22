@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 def garden_operations(error: str):
     if error == "value":
         num = int("hi")

@@ -31,8 +31,6 @@ class Plant:
         print(f"{self.name} : {self.height}cm, {self.age} days old")
 
 
-if __name__ == "__main__":
-    """Main entry point: simulate a week of growth for multiple plants."""
 tulip = Plant("Tulip", 22, 19)
 rose = Plant("Rose", 25, 30)
 

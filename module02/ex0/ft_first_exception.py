@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 def  check_temperature():
 	print("=== Garden Temperature Checker ===")
 	temp_str = input("Testing temperature: ")

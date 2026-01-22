@@ -79,27 +79,23 @@ class Vegetable(Plant):
         print(f"{self._Plant__name} is rich {self.nutritional_value}")
 
 
-def main():
-    """Main function: demonstrate different plant types with inheritance."""
-    print("=== Garden Plant Types ===")
-    tulip = Flower("Tulip", 18, 8, "white")
-    rose = Flower("ROse", 28, 2, "red")
+print("=== Garden Plant Types ===")
+tulip = Flower("Tulip", 18, 8, "white")
+rose = Flower("Rose", 28, 2, "red")
 
-    tulip.get_info()
-    tulip.bloom()
-    rose.get_info()
-    rose.bloom()
-
-    arbre = Tree("Oak", 18, 8, 2026)
-    arbre = Tree("Treee", 18, 8, 2026)
-    arbre.get_info()
-    arbre.produce_shade(78)
-    print(" ")
-    tomato = Vegetable("Tomato", 80, 90, "summer", "vitamin C")
-    carrot = Vegetable("Carrot", 40, 75, "Autumn", "vitamin A")
-    tomato.get_info()
-    carrot.get_info()
-
-
-if __name__ == "__main__":
-    main()
+tulip.get_info()
+tulip.bloom()
+rose.get_info()
+rose.bloom()
+print(" ")
+oak = Tree("Oak", 18, 8, 2026)
+arbre = Tree("Treee", 18, 8, 2026)
+oak.get_info()
+oak.produce_shade(78)
+arbre.get_info()
+arbre.produce_shade(78)
+print(" ")
+tomato = Vegetable("Tomato", 80, 90, "summer", "vitamin C")
+carrot = Vegetable("Carrot", 40, 75, "Autumn", "vitamin A")
+tomato.get_info()
+carrot.get_info()
