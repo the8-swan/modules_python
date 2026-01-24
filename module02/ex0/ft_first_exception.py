@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 def check_temperature(temp_str):
+    """ Function that convert string to integer and check if the temperature
+    is reasonable for plants"""
     try:
         tmp = int(temp_str)
         if tmp > 0 and tmp < 40:
@@ -13,7 +15,8 @@ def check_temperature(temp_str):
 
 
 def test_temperature_input():
-    values = [12, 32, 11, -8, "hii"]
+    """ Function that checks that check_temperature handels all inputs"""
+    values = ["12", "32", "110", "-8", "hii"]
     for v in values:
         print("Testing temperature :", v)
         check_temperature(v)
