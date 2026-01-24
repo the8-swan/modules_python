@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 class GardenError(Exception):
     pass
@@ -20,10 +21,22 @@ class Plant:
 	def __init__(self, name, water, sun):
 		if name is None or name == "":
 			raise PlantError("Plant name cannot be empty!")
+=======
+#class, Exception, try, except, finally, raise, print()
+class Plant:
+	def __init__(self, name, water, sun):
+>>>>>>> 9f13a02 (before pulling)
 		self.name = name
 		self.water = water
 		self.sun = sun
 
+<<<<<<< HEAD
+=======
+class PlantsFactory:
+	def __init__(self, plants)
+		self.plants = []
+
+>>>>>>> 9f13a02 (before pulling)
 class GardenManager:
 	def __init__(self):
 		self.plants = []

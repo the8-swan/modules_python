@@ -54,15 +54,16 @@ class SecurePlant:
 
     def get_info(self):
         """Display the plant's current information."""
-        print(f"plant: {self.__name} ({self.__height}cm,{self.__age} days)")
+        print(f"plant: {self.__name} ({self.__height}cm, {self.__age} days)")
 
 
 def main():
     """Main function: demonstrate secure plant with validation."""
     print("=== Garden Security System ===")
-    tulip = SecurePlant("Tulip", -8, -18)
-    tulip.set_age(-8)
-    tulip.set_height(18)
+    tulip = SecurePlant("Tulip", 8, 18)
+    tulip.set_age(30)
+    tulip.set_height(25)
+    tulip.set_height(-5)
     tulip.get_info()
 
 
