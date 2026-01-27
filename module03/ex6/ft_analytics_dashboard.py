@@ -6,6 +6,7 @@ data = {
             "sessions_played": 13,
             "favorite_mode": "ranked",
             "achievements_count": 5,
+            "regions": "north", 
         },
         "bob": {
             "level": 16,
@@ -13,6 +14,7 @@ data = {
             "sessions_played": 27,
             "favorite_mode": "ranked",
             "achievements_count": 2,
+            "regions": "north",
         },
         "charlie": {
             "level": 44,
@@ -20,6 +22,7 @@ data = {
             "sessions_played": 21,
             "favorite_mode": "ranked",
             "achievements_count": 7,
+            "regions": "east",
         },
         "diana": {
             "level": 3,
@@ -27,6 +30,7 @@ data = {
             "sessions_played": 21,
             "favorite_mode": "casual",
             "achievements_count": 4,
+            "regions": "south",
         },
         "eve": {
             "level": 33,
@@ -34,6 +38,7 @@ data = {
             "sessions_played": 81,
             "favorite_mode": "casual",
             "achievements_count": 7,
+            "regions": "central", 
         },
         "frank": {
             "level": 15,
@@ -41,6 +46,7 @@ data = {
             "sessions_played": 85,
             "favorite_mode": "competitive",
             "achievements_count": 1,
+            "regions": "central",
         },
     },
     "sessions": [
@@ -269,42 +275,65 @@ data = {
 }
 
 
-# List/dict/set comprehensions, len(), print(), sum(), max(),min(), sorted()
 def list_comprehension(data):
     players = data['players']
-    hscore = [player for player, infos in players.items() if infos['total_score'] > 2000]
-    dscores = [2 * infos['total_score'] for infos in players.values()]
-    mode = [player for player, infos in players.items() if infos['favorite_mode'] == 'ranked']
-    print("High scorers (>2000):", hscore)
-    print("Scores doubled:", dscores)
-    print("Players who prefer ranked mode:", mode)
+    h_scores = [player for player, values in players.items() if values['total_score'] > 2000]
+    d_scores = [values['total_score'] * 2 for player, values in players.items()]
+    r_players = [player for player, values in players.items() if values['favorite_mode'] == 'ranked']
+    print("High scorers (>2000):", h_scores)
+    print("Scores doubled: ", d_scores)
+    print("players who prefer ranked mode: ", r_players)
     print("")
 
 
 def dict_comprehension(data):
-    players = data['players']
-    pscore = {name: infos['total_score'] for name, infos in players.items()}
-    print("Player scores:", pscore)
+	player_sc = {name : value['total_score'] for name, value in data['players'].items()}
+	score_categorie = {} 
+	achievements_count = {name:value['achievements_count'] for name, value in data['players'].items()}
+	print("Player scores: ", player_sc)
+	print("Score categories:", score_categorie)
+	print("Achievement counts:", achievements_count)
+	print("")
 
+
+def set_comprehension(data):
+    players = {player for player in data['players']}
+    unique_achivements = {achiv for achiv in data['achievements']}
+    active_regions= {value['regions'] for name, value in data['players'].items()}
+    print("Unique players: ", players)
+    print("Unique achievements:  ", unique_achivements)
+    print("Active regions: ", active_regions)
     print("")
 
 
-def dashboard():
+def combined_analysis(data):
+    players = [player for player in data['players']]
+    player_sc = {name:value['total_score'] for name, value in data['players'].items()}
+    max_score = max(player_sc, key=player_sc.get)
+    sum = 0
+    for player in players:
+        sum += data['players'][player]['total_score']
+    print(f"sum: {sum}")
+    print(f"Total players: {len(players)}")
+    print(f"Total unique achievements: {len(data['achievements'])}")
+    print(f"Average score: {sum/len(players):.1f}")
+    print(f"Top performer: {max_score} ({player_sc[max_score]} points)")
+
+
+def analytics_dashboard():
     print("=== Game Analytics Dashboard ===\n")
-    # List section
+
     print("=== List Comprehension Examples ===")
     list_comprehension(data)
 
-    # Dict section
     print("=== Dict Comprehension Examples ===")
     dict_comprehension(data)
 
+    print("=== Set Comprehension Examples ===")
+    set_comprehension(data)
 
-# [expression for variable in iterable if condition]
-def test():
-    number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    even_numbers = [num for num in number if num % 2 == 0]
-    print(even_numbers)
+    print("=== Combined Analysis ===")
+    combined_analysis(data)
 
 
-dashboard()
+analytics_dashboard()

@@ -17,7 +17,7 @@ def test_coordinate():
         coords = (10, 20, 5)
         print("Position created:", coords)
         calculate_distance(coords)
-
+        print("")
         print("Unpacking demonstration:")
         x, y, z = coords
         print(f"Player at x={x}, y={y}, z={z}")

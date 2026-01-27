@@ -71,7 +71,11 @@ def achievement_tracker():
 
     common_achiev = alice_achiev.intersection(bob_achiev, charlie_achiev)
     print("Common to all players: ", common_achiev)
-    print("Rare achievement:\n")
+    player1 = alice_achiev.difference(bob_achiev, charlie_achiev)
+    player2 = bob_achiev.difference(alice_achiev, charlie_achiev)
+    player3 = charlie_achiev.difference(alice_achiev, bob_achiev)
+    rare_achievements = player1.union(player2, player3)
+    print(f"Rare achievements (1 player): {rare_achievements}")
 
     print("Alice vs Bob common:", alice_achiev.intersection(bob_achiev))
     print("Alice unique:", alice_achiev.difference(bob_achiev))

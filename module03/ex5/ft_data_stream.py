@@ -1,4 +1,3 @@
-# yield, next(), iter(), range(), len(), print(), for loops
 data = [
     {
         "id": 1,

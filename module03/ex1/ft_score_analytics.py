@@ -18,11 +18,11 @@ if length == 1:
         "No scores provided. Usage: python3 ft_score_analytics.py <score1>"
         "<score2> ..")
 else:
-    for arg in sys.argv[1:]:
-        try:
+    try:
+        for arg in sys.argv[1:]:
             score = int(arg)
             scores.append(score)
-        except ValueError:
-            print(f"Invalid score : {arg}")
-    print("Scores processed", scores)
-    calculation(scores)
+        print("Scores processed", scores)
+        calculation(scores)
+    except ValueError:
+        print(f"Invalid score : {arg}")
