@@ -6,7 +6,7 @@ data = {
             "sessions_played": 13,
             "favorite_mode": "ranked",
             "achievements_count": 5,
-            "regions": "north", 
+            "regions": "north",
         },
         "bob": {
             "level": 16,
@@ -38,7 +38,7 @@ data = {
             "sessions_played": 81,
             "favorite_mode": "casual",
             "achievements_count": 7,
-            "regions": "central", 
+            "regions": "central",
         },
         "frank": {
             "level": 15,
@@ -277,9 +277,12 @@ data = {
 
 def list_comprehension(data):
     players = data['players']
-    h_scores = [player for player, values in players.items() if values['total_score'] > 2000]
-    d_scores = [values['total_score'] * 2 for player, values in players.items()]
-    r_players = [player for player, values in players.items() if values['favorite_mode'] == 'ranked']
+    h_scores = [player for player, values in players.items()
+                if values['total_score'] > 2000]
+    d_scores = [values['total_score'] * 2
+                for player, values in players.items()]
+    r_players = [player for player, values in players.items()
+                 if values['favorite_mode'] == 'ranked']
     print("High scorers (>2000):", h_scores)
     print("Scores doubled: ", d_scores)
     print("players who prefer ranked mode: ", r_players)
@@ -287,19 +290,22 @@ def list_comprehension(data):
 
 
 def dict_comprehension(data):
-	player_sc = {name : value['total_score'] for name, value in data['players'].items()}
-	score_categorie = {} 
-	achievements_count = {name:value['achievements_count'] for name, value in data['players'].items()}
-	print("Player scores: ", player_sc)
-	print("Score categories:", score_categorie)
-	print("Achievement counts:", achievements_count)
-	print("")
+    player_sc = {name: value['total_score']
+                 for name, value in data['players'].items()}
+    score_categorie = {}
+    achievements_count = {name: value['achievements_count']
+                          for name, value in data['players'].items()}
+    print("Player scores: ", player_sc)
+    print("Score categories:", score_categorie)
+    print("Achievement counts:", achievements_count)
+    print("")
 
 
 def set_comprehension(data):
     players = {player for player in data['players']}
     unique_achivements = {achiv for achiv in data['achievements']}
-    active_regions= {value['regions'] for name, value in data['players'].items()}
+    active_regions = {value['regions']
+                      for name, value in data['players'].items()}
     print("Unique players: ", players)
     print("Unique achievements:  ", unique_achivements)
     print("Active regions: ", active_regions)
@@ -308,7 +314,8 @@ def set_comprehension(data):
 
 def combined_analysis(data):
     players = [player for player in data['players']]
-    player_sc = {name:value['total_score'] for name, value in data['players'].items()}
+    player_sc = {name: value['total_score']
+                 for name, value in data['players'].items()}
     max_score = max(player_sc, key=player_sc.get)
     sum = 0
     for player in players:
